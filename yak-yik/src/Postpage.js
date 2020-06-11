@@ -45,12 +45,13 @@ class Postpage extends Component {
   create = (values) => {
     const currentreplies = this.state.data.reply.map((data) => data.reply);
     const replyobj = currentreplies.map((str) => ({ reply: str }));
-    const repliesobj = replyobj.push({ reply: values });
+    const repliesobj = replyobj.push( values );
+    console.log(replyobj);
     return axios({
       method: "put",
       url: `https://yak-yik-api.herokuapp.com/posts/id/${this.state.data._id}`,
       data: {
-        reply: repliesobj,
+        reply: replyobj,
       },
     });
   };
