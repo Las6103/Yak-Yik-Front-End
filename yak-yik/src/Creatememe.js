@@ -9,6 +9,7 @@ export default function Creatememe() {
     initialValues: {
       image_url: '',
     },
+
     onSubmit: (values) => {
       axios({
         method: 'post',
