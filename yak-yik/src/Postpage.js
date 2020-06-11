@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { Component } from "react";
 import Replylist from "./Replylist.js";
 import Container from "react-bootstrap/Container";
@@ -9,16 +10,28 @@ import Form from "react-bootstrap/Form";
 import axios from "axios";
 import { Formik } from "formik";
 import Modal from "react-bootstrap/Modal";
+=======
+import React, { Component } from 'react';
+import Replylist from './Replylist.js';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import Col from 'react-bootstrap/Col';
+import Form from 'react-bootstrap/Form';
+import axios from 'axios';
+import { Formik } from 'formik';
+>>>>>>> 46086638d28a9bd89aa159acffd489e3ae7e1693
 class Postpage extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       data: {
-        post: "",
+        post: '',
         reply: [
           {
-            reply: "",
+            reply: '',
           },
         ],
       },
@@ -49,7 +62,7 @@ class Postpage extends Component {
     const repliesobj = replyobj.push(values);
     console.log(replyobj);
     return axios({
-      method: "put",
+      method: 'put',
       url: `https://yak-yik-api.herokuapp.com/posts/id/${this.state.data._id}`,
       data: {
         reply: replyobj,
@@ -88,7 +101,7 @@ class Postpage extends Component {
 
           <Formik
             initialValues={{
-              reply: "",
+              reply: '',
             }}
             enableReinitialize={true}
             onSubmit={(values) => {
@@ -100,20 +113,30 @@ class Postpage extends Component {
               <Form>
                 <Row>
                   <Col>
-                    <Form.Group controlId="formGroupReply">
+                    <Form.Group controlId='formGroupReply'>
                       <Form.Label>Reply</Form.Label>
                       <Form.Control
-                        type="text"
-                        placeholder="Create Reply"
-                        controlid="reply"
-                        name="reply"
+                        type='text'
+                        placeholder='Create Reply'
+                        controlid='reply'
+                        name='reply'
                         onChange={props.handleChange}
                         value={props.values.reply}
                       />
                     </Form.Group>
                   </Col>
                 </Row>
+<<<<<<< HEAD
                 <Button variant="primary" onClick={this.handleShowCreate}>
+=======
+                <Button
+                  variant='primary'
+                  onClick={() => {
+                    props.handleSubmit();
+                    this.getPost();
+                  }}
+                >
+>>>>>>> 46086638d28a9bd89aa159acffd489e3ae7e1693
                   Create
                 </Button>
                 <Modal
