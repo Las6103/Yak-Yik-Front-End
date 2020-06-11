@@ -5,7 +5,7 @@ import Nav from "react-bootstrap/Nav";
 function Menu() {
   return (
     <header>
-      <Navbar bg="success" variant="dark">
+      <Navbar sticky="top" bg="success" variant="dark">
         <Navbar.Brand href="/">Yak Yik</Navbar.Brand>
         <Nav className="mr-auto">
           <Nav.Link href="/">Home</Nav.Link>
