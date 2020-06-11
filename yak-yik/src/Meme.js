@@ -1,6 +1,8 @@
 import React from 'react';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+
 
 // import "./Meme.css";
 import { Link } from 'react-router-dom';
@@ -18,6 +20,7 @@ function Meme(props) {
                 alt='img'
               />
             </Card.Title>
+            <Button variant="primary">Delete</Button>
           </Card.Body>
         </Card>
       </Link>
