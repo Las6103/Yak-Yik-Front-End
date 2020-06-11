@@ -11,11 +11,12 @@ class Memelist extends Component {
     };
   }
 
-  componentDidMount = () => {};
+  componentDidMount = () => {
+    this.getMemes();
+  };
 
   getMemes = () => {
-    const url = `https://yak-yik-api.herokuapp.com/memes`;
-    fetch(url)
+    fetch('https://yak-yik-api.herokuapp.com/memes')
       .then((unparsedData) => unparsedData.json())
       .then((parsedData) => {
         this.setState({ data: parsedData });
