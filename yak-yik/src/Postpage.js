@@ -84,7 +84,7 @@ class Postpage extends Component {
                       <Form.Label>Reply</Form.Label>
                       <Form.Control
                         type="text"
-                        placeholder="Insert Reply"
+                        placeholder="Create Reply"
                         controlid="reply"
                         name="reply"
                         onChange={props.handleChange}
