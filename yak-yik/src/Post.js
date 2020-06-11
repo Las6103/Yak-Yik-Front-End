@@ -4,7 +4,6 @@ import Card from "react-bootstrap/Card";
 import "./Post.css";
 import { Link } from "react-router-dom";
 function Post(props) {
-  console.log(props.data);
   return (
     <Col xs={12} md={6}>
       <Link to={`/posts/${props.data._id}`}>
