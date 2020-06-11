@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Container from "react-bootstrap/Container";
 import Image from 'react-bootstrap/Image';
+import Button from 'react-bootstrap/Button';
 import axios from "axios";
 
 class Memepage extends Component {
@@ -8,7 +9,7 @@ class Memepage extends Component {
     super(props);
 
     this.state = {
-      data: [],
+      data: {image_url: ""},
     };
   }
 
@@ -32,13 +33,22 @@ class Memepage extends Component {
       url:`https://yak-yik-api.herokuapp.com/memes/id/${this.state.data._id}` 
     })
   }
+
+  handleDelete = () => {
+    this.delete().then(() => {
+      this.props.history.push('/memes')
+    }) 
+  }
+
   render() {
     console.log(this.state.data);
-    const image = this.state.data.image_url;
+    const data = this.state.data;
     return (
       <Container>
-        <Image src ={image} />
+        <Image src ={data.image_url} />
+        <Button variant='danger' onClick = {this.handleDelete}>Delete</Button>
       </Container>
+      
     );
   }
 }
