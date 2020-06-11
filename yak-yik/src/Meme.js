@@ -16,7 +16,7 @@ function Meme(props) {
             <Card.Title>
               <img
                 src={props.data.image_url}
-                class='rounded float-left img-fluid'
+                className='rounded float-left img-fluid'
                 alt='img'
               />
             </Card.Title>
