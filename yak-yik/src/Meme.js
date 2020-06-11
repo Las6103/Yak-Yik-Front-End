@@ -9,7 +9,9 @@ function Meme(props) {
       <Link to={`/memes/${props.data._id}`}>
         <Card>
           <Card.Body>
-            <Card.Title>{props.data.meme}</Card.Title>
+            <Card.Title>
+              <img src={props.data.image_url} alt='img' />
+            </Card.Title>
           </Card.Body>
         </Card>
       </Link>
