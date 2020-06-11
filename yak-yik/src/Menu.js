@@ -4,7 +4,6 @@ import Nav from "react-bootstrap/Nav";
 
 function Menu() {
   return (
-    <header>
       <Navbar sticky="top" bg="success" variant="dark">
         <Navbar.Brand href="/">Yak Yik</Navbar.Brand>
         <Nav className="mr-auto">
@@ -14,7 +13,6 @@ function Menu() {
           <Nav.Link href="/create-memes">Create Meme</Nav.Link>
         </Nav>
       </Navbar>
-    </header>
   );
 }
 
