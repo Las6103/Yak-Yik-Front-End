@@ -29,7 +29,7 @@ export default function Creatememe() {
             type="text"
             placeholder="Enter image URL"
             as="textarea"
-            rows="3"
+            rows="1"
             onChange={formik.handleChange}
             value={formik.values.image_url}
           />
