@@ -33,7 +33,6 @@ class Postpage extends Component {
     console.log(content);
     return (
       <>
-        <Menu />
         <Container>
           <h2>Post</h2>
           <Card>
