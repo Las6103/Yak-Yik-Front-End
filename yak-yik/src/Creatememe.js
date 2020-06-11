@@ -14,7 +14,7 @@ export default function Creatememe() {
         method: 'post',
         url: 'https://yak-yik-api.herokuapp.com/memes',
         data: {
-          meme: values.image_url,
+          image_url: values.image_url,
         },
       });
     },
@@ -23,8 +23,7 @@ export default function Creatememe() {
   return (
     <div>
       <Form onSubmit={formik.handleSubmit}>
-        <Form.Group controlId='post'>
-          <Form.Label>Create Meme</Form.Label>
+        <Form.Group controlId='image_url'>
           <Form.Control
             type='text'
             placeholder='Create Meme'
