@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Menu from "./Menu.js";
 import Replylist from "./Replylist.js";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
