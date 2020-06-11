@@ -27,8 +27,8 @@ class Memelist extends Component {
   render() {
     return (
       <>
-        <Creatememe />
         <Container>
+          <Creatememe />
           <Row>
             {this.state.data.map((data) => {
               return <Meme data={data} key={data._id} />;
