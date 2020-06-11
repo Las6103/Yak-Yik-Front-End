@@ -21,7 +21,7 @@ export default function Creatememe() {
   });
 
   return (
-    <>
+    <div>
       <Form onSubmit={formik.handleSubmit}>
         <Form.Group controlId='post'>
           <Form.Label>Create Meme</Form.Label>
@@ -39,6 +39,6 @@ export default function Creatememe() {
           Submit
         </Button>
       </Form>
-    </>
+    </div>
   );
 }
