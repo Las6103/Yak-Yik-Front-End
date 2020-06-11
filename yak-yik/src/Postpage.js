@@ -8,19 +8,21 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import axios from "axios";
 import { Formik } from "formik";
+import Modal from "react-bootstrap/Modal";
 class Postpage extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       data: {
-        post: "",
+        post: '',
         reply: [
           {
-            reply: "",
+            reply: '',
           },
         ],
       },
+      showCreate: false,
     };
   }
 
@@ -47,12 +49,29 @@ class Postpage extends Component {
     const repliesobj = replyobj.push(values);
     console.log(replyobj);
     return axios({
-      method: "put",
+      method: 'put',
       url: `https://yak-yik-api.herokuapp.com/posts/id/${this.state.data._id}`,
       data: {
         reply: replyobj,
       },
     });
+  };
+
+  handleCreate = () => {
+    this.create().then(() => {
+      this.setState({ showCreate: false });
+    });
+  };
+
+  /**
+   * Modal Controls
+   */
+  handleShowCreate = () => {
+    this.setState({ showCreate: true });
+  };
+
+  handleCloseCreate = () => {
+    this.setState({ showCreate: false });
   };
 
   render() {
@@ -69,39 +88,54 @@ class Postpage extends Component {
 
           <Formik
             initialValues={{
-              reply: "",
+              reply: '',
             }}
             enableReinitialize={true}
             onSubmit={(values) => {
               this.create(values).then(() => this.getPost());
+              this.handleCloseCreate();
             }}
           >
             {(props) => (
               <Form>
                 <Row>
                   <Col>
-                    <Form.Group controlId="formGroupReply">
+                    <Form.Group controlId='formGroupReply'>
                       <Form.Label>Reply</Form.Label>
                       <Form.Control
-                        type="text"
-                        placeholder="Create Reply"
-                        controlid="reply"
-                        name="reply"
+                        type='text'
+                        placeholder='Create Reply'
+                        controlid='reply'
+                        name='reply'
                         onChange={props.handleChange}
                         value={props.values.reply}
                       />
                     </Form.Group>
                   </Col>
                 </Row>
-                <Button
-                  variant="primary"
-                  onClick={() => {
-                    props.handleSubmit();
-                    this.getPost();
-                  }}
-                >
+                <Button variant="primary" onClick={this.handleShowCreate}>
                   Create
                 </Button>
+                <Modal
+                  show={this.state.showCreate}
+                  onHide={this.handleCloseCreate}
+                  animation={false}
+                >
+                  <Modal.Header closeButton>
+                    <Modal.Title>Please Confirm</Modal.Title>
+                  </Modal.Header>
+                  <Modal.Body>
+                    Are you sure you want to post this reply?
+                  </Modal.Body>
+                  <Modal.Footer>
+                    <Button variant="secondary" onClick={props.handleSubmit}>
+                      Create
+                    </Button>
+                    <Button variant="danger" onClick={this.handleCloseCreate}>
+                      Close
+                    </Button>
+                  </Modal.Footer>
+                </Modal>
               </Form>
             )}
           </Formik>
