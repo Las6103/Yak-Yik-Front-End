@@ -1,8 +1,8 @@
-import React from "react";
-import Col from "react-bootstrap/Col";
-import Card from "react-bootstrap/Card";
-import "./Meme.css";
-import { Link } from "react-router-dom";
+import React from 'react';
+import Col from 'react-bootstrap/Col';
+import Card from 'react-bootstrap/Card';
+// import "./Meme.css";
+import { Link } from 'react-router-dom';
 function Meme(props) {
   return (
     <Col xs={12} md={4}>

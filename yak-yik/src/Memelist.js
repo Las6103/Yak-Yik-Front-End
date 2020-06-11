@@ -14,7 +14,7 @@ class Memelist extends Component {
   componentDidMount = () => {};
 
   getMemes = () => {
-    const url = `https://yak-yik-api.herokuapp.com/posts/id/memes`;
+    const url = `https://yak-yik-api.herokuapp.com/memes`;
     fetch(url)
       .then((unparsedData) => unparsedData.json())
       .then((parsedData) => {
