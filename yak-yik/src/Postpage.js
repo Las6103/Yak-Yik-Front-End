@@ -8,6 +8,7 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import axios from "axios";
 import { Formik } from "formik";
+import Modal from "react-bootstrap/Modal";
 class Postpage extends Component {
   constructor(props) {
     super(props);
@@ -21,6 +22,7 @@ class Postpage extends Component {
           },
         ],
       },
+      showCreate: false,
     };
   }
 
@@ -55,6 +57,23 @@ class Postpage extends Component {
     });
   };
 
+  handleCreate = () => {
+    this.create().then(() => {
+      this.setState({ showCreate: false });
+    });
+  };
+
+  /**
+   * Modal Controls
+   */
+  handleShowCreate = () => {
+    this.setState({ showCreate: true });
+  };
+
+  handleCloseCreate = () => {
+    this.setState({ showCreate: false });
+  };
+
   render() {
     const content = this.state.data;
     return (
@@ -74,6 +93,7 @@ class Postpage extends Component {
             enableReinitialize={true}
             onSubmit={(values) => {
               this.create(values).then(() => this.getPost());
+              this.handleCloseCreate();
             }}
           >
             {(props) => (
@@ -93,15 +113,29 @@ class Postpage extends Component {
                     </Form.Group>
                   </Col>
                 </Row>
-                <Button
-                  variant="primary"
-                  onClick={() => {
-                    props.handleSubmit();
-                    this.getPost();
-                  }}
-                >
+                <Button variant="primary" onClick={this.handleShowCreate}>
                   Create
                 </Button>
+                <Modal
+                  show={this.state.showCreate}
+                  onHide={this.handleCloseCreate}
+                  animation={false}
+                >
+                  <Modal.Header closeButton>
+                    <Modal.Title>Please Confirm</Modal.Title>
+                  </Modal.Header>
+                  <Modal.Body>
+                    Are you sure you want to post this reply?
+                  </Modal.Body>
+                  <Modal.Footer>
+                    <Button variant="secondary" onClick={props.handleSubmit}>
+                      Create
+                    </Button>
+                    <Button variant="danger" onClick={this.handleCloseCreate}>
+                      Close
+                    </Button>
+                  </Modal.Footer>
+                </Modal>
               </Form>
             )}
           </Formik>
