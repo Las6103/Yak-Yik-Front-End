@@ -128,7 +128,7 @@ class Postpage extends Component {
                     Are you sure you want to post this reply?
                   </Modal.Body>
                   <Modal.Footer>
-                    <Button variant="secondary" onClick={props.handleSubmit}>
+                    <Button variant="success" onClick={props.handleSubmit}>
                       Create
                     </Button>
                     <Button variant="danger" onClick={this.handleCloseCreate}>
