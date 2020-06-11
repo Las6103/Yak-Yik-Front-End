@@ -1,19 +1,19 @@
-import React from 'react';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-import { useFormik } from 'formik';
-import axios from 'axios';
+import React from "react";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import { useFormik } from "formik";
+import axios from "axios";
 
 export default function Creatememe() {
   const formik = useFormik({
     initialValues: {
-      image_url: '',
+      image_url: "",
     },
 
     onSubmit: (values) => {
       axios({
-        method: 'post',
-        url: 'https://yak-yik-api.herokuapp.com/memes',
+        method: "post",
+        url: "https://yak-yik-api.herokuapp.com/memes",
         data: {
           image_url: values.image_url,
         },
@@ -24,18 +24,19 @@ export default function Creatememe() {
   return (
     <div>
       <Form onSubmit={formik.handleSubmit}>
-        <Form.Group controlId='image_url'>
+        <Form.Group controlId="image_url">
+          <Form.Label>Dank Memes</Form.Label>
           <Form.Control
-            type='text'
-            placeholder='Create Meme'
-            as='textarea'
-            rows='3'
+            type="text"
+            placeholder="Enter image URL"
+            as="textarea"
+            rows="1"
             onChange={formik.handleChange}
             value={formik.values.image_url}
           />
-          <Form.Text className='text-muted '>Send the memes!</Form.Text>
+          <Form.Text className="text-muted ">Send the memes!</Form.Text>
         </Form.Group>
-        <Button variant='primary' type='submit'>
+        <Button variant="primary" type="submit">
           Submit
         </Button>
       </Form>

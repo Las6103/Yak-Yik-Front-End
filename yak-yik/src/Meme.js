@@ -1,7 +1,7 @@
 import React from 'react';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
+
 
 // import "./Meme.css";
 import { Link } from 'react-router-dom';
@@ -15,11 +15,11 @@ function Meme(props) {
             <Card.Title>
               <img
                 src={props.data.image_url}
-                class='rounded float-left img-fluid'
+                className='rounded float-left img-fluid'
                 alt='img'
               />
             </Card.Title>
-            <Button variant='primary'>Delete</Button>
+            
           </Card.Body>
         </Card>
       </Link>
