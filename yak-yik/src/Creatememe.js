@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
 import { useFormik } from "formik";
 import axios from "axios";
 
@@ -10,16 +11,34 @@ export default function Creatememe() {
       image_url: "",
     },
 
-    onSubmit: (values) => {
-      axios({
-        method: "post",
-        url: "https://yak-yik-api.herokuapp.com/memes",
-        data: {
-          image_url: values.image_url,
-        },
-      });
+    onSubmit: () => {
+      create().then(() => window.location.reload(true))
     },
   });
+
+  const create = () => {
+    return axios({
+      method: "post",
+      url: "https://yak-yik-api.herokuapp.com/memes",
+      data: {
+        image_url: formik.values.image_url,
+      }
+    })
+  }
+
+  /**
+   * Modal Controls
+   */
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+
+  const handleShow = () => setShow(true);
+
+  const handleCreate = () => {
+    formik.handleSubmit();
+    setShow(false);
+  };
 
   return (
     <div>
@@ -36,10 +55,24 @@ export default function Creatememe() {
           />
           <Form.Text className="text-muted ">Send the memes!</Form.Text>
         </Form.Group>
-        <Button variant="primary" type="submit">
-          Submit
+        <Button variant="primary" onClick={handleShow}>
+          Create
         </Button>
       </Form>
+      <Modal show={show} onHide={handleClose} animation={false}>
+        <Modal.Header closeButton>
+          <Modal.Title>Please Confirm</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>You're about to create this dank meme!</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleCreate}>
+            Create
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 }
