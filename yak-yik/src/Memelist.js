@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Meme from './Meme.js';
 import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
 
 class Memelist extends Component {
   constructor() {
