@@ -1,15 +1,15 @@
-import React, { Component } from "react";
-import Menu from "./Menu.js";
-import Replylist from "./Replylist.js";
-import Container from "react-bootstrap/Container";
-import Card from "react-bootstrap/Card";
+import React, { Component } from 'react';
+import Menu from './Menu.js';
+import Replylist from './Replylist.js';
+import Container from 'react-bootstrap/Container';
+import Card from 'react-bootstrap/Card';
 class Postpage extends Component {
   constructor() {
     super();
 
     this.state = {
       data: {
-        post: "",
+        post: '',
         reply: [],
       },
     };
