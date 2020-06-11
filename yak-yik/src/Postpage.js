@@ -2,15 +2,25 @@ import React, { Component } from "react";
 import Menu from "./Menu.js";
 import Replylist from "./Replylist.js";
 import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import Col from "react-bootstrap/Col";
+import Form from "react-bootstrap/Form";
+import axios from "axios";
+import { Formik } from "formik";
 class Postpage extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       data: {
         post: "",
-        reply: [],
+        reply: [
+          {
+            reply: "",
+          },
+        ],
       },
     };
   }
@@ -28,9 +38,34 @@ class Postpage extends Component {
         this.setState({ data: parsedData });
       });
   };
+
+  /**
+   * Create Reply
+   */
+  create = (values) => {
+    const currentreplies = this.state.data.reply.map((data) => data.reply);
+    const replyobj = currentreplies.map((str) => ({ reply: str }));
+    const repliesobj = replyobj.push({ reply: values });
+    return axios({
+      method: "put",
+      url: `https://yak-yik-api.herokuapp.com/posts/id/${this.state.data._id}`,
+      data: {
+        reply: repliesobj,
+      },
+    });
+  };
+
   render() {
     const content = this.state.data;
-    console.log(content);
+    // console.log(content);
+    const replies = this.state.data.reply.map((data) => data.reply);
+    console.log(replies);
+    const replyobj = replies.map((str) => ({ reply: str }));
+    console.log(replyobj);
+
+    const test = "please work";
+    const mix = replyobj.push({ reply: test });
+    console.log(replyobj);
     return (
       <>
         <Menu />
@@ -41,6 +76,45 @@ class Postpage extends Component {
               <Card.Title>{content.post}</Card.Title>
             </Card.Body>
           </Card>
+
+          <Formik
+            initialValues={{
+              reply: "",
+            }}
+            enableReinitialize={true}
+            onSubmit={(values) => {
+              this.create(values).then(() => this.getPost());
+            }}
+          >
+            {(props) => (
+              <Form>
+                <Row>
+                  <Col>
+                    <Form.Group controlId="formGroupReply">
+                      <Form.Label>Reply</Form.Label>
+                      <Form.Control
+                        type="text"
+                        placeholder="Insert Reply"
+                        controlid="reply"
+                        name="reply"
+                        onChange={props.handleChange}
+                        value={props.values.reply}
+                      />
+                    </Form.Group>
+                  </Col>
+                </Row>
+                <Button
+                  variant="primary"
+                  onClick={() => {
+                    props.handleSubmit();
+                    this.getPost();
+                  }}
+                >
+                  Create
+                </Button>
+              </Form>
+            )}
+          </Formik>
 
           <Replylist data={content.reply} />
         </Container>

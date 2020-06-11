@@ -6,7 +6,7 @@ function Replies(props) {
     <>
       <h2>Replies</h2>
       {props.data.map((data) => {
-        return <Reply data={data} key={data._id} />;
+        return <Reply data={data} key={data.reply} />;
       })}
     </>
   );
