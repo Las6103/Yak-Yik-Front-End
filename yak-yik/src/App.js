@@ -9,6 +9,7 @@ import { Route, Switch } from 'react-router-dom';
 function App() {
   return (
     <div className='App'>
+      <Menu />
       <Switch>
         <Route
           path='/memes'
@@ -24,7 +25,6 @@ function App() {
           }}
         />
         <Route path='/'>
-          <Menu />
           <Postlist />
         </Route>
       </Switch>
