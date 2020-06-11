@@ -10,7 +10,6 @@ function Meme(props) {
         <Card>
           <Card.Body>
             <Card.Title>{props.data.meme}</Card.Title>
-            <p>delete this</p>
           </Card.Body>
         </Card>
       </Link>
