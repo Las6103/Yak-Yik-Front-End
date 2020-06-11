@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Post from "./Post.js";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
+import Createpost from "./Createpost.js";
 class Postlist extends Component {
   constructor(props) {
     super(props);
@@ -21,6 +22,7 @@ class Postlist extends Component {
   render() {
     return (
       <Container>
+          <Createpost />
         <Row>
           {this.state.data.map((data) => {
             return <Post data={data} key={data._id} />;
