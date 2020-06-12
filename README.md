@@ -8,11 +8,11 @@ Yak Yik is a ananymous social platform where you have the opportunity to casuall
 
 ## Usage
 
-**Create a post to have the post publiclly display:**
+**Create a post to have the post be publiclly displayed below:**
 
 ![Image of YakYik Home](https://github.com/Las6103/Yak-Yik-Front-End/blob/feature/README%20IMG/YakYikPost.png?raw=true)
 
-**When you click on a post you have the option to reply to the post. Post anything you want!:**
+**When you click on a post you have the option to reply to the post. Post anything you want:**
 
 ![Image of YakYik Postpage](https://github.com/Las6103/Yak-Yik-Front-End/blob/feature/README%20IMG/YakYikPostPage.png?raw=true)
 
