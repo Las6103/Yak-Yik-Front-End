@@ -1,22 +1,22 @@
 # Yak-Yik-Front-End
 
-## Description
-
 click [Here]() to access the site!
 
-Yak Yik is a ananymous social platform where you have the opportunity to casually converse or trash talk strangers over the web!
+## Description
+
+Yak Yik is a ananymous social platform where you have the opportunity to casually converse or trash talk strangers. Theres is also a space to share dank memes from all over the web!
 
 ## Usage
 
-Create a post to have the post publiclly display:
+**Create a post to have the post publiclly display:**
 
 ![Image of YakYik Home](https://github.com/Las6103/Yak-Yik-Front-End/blob/feature/README%20IMG/YakYikPost.png?raw=true)
 
-When you click on a post you have the opportunity to comment on said post:
+**When you click on a post you have the option to reply to the post. Post anything you want!:**
 
 ![Image of YakYik Postpage](https://github.com/Las6103/Yak-Yik-Front-End/blob/feature/README%20IMG/YakYikPostPage.png?raw=true)
 
-There is also a meme page! in the "Enter image URl field" link a URL ending in .png .jpeg .img or .gif to have that image appear below:
+**There is also a meme page! in the "Enter image URl field" link a URL ending in .png .jpeg .img or .gif to have that image appear below:**
 
 ![Image of YakYik Postpage](https://github.com/Las6103/Yak-Yik-Front-End/blob/feature/README%20IMG/YakYikMeme.png?raw=true)
 
