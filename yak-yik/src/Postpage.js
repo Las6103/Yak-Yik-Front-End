@@ -6,6 +6,7 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
+import "./Postpage.css"
 import axios from "axios";
 import { Formik } from "formik";
 import Modal from "react-bootstrap/Modal";
@@ -107,12 +108,13 @@ class Postpage extends Component {
                 <Row>
                   <Col>
                     <Form.Group controlId="formGroupReply">
-                      <Form.Label>Reply</Form.Label>
+                      <Form.Label className="reply">Replies</Form.Label>
                       <Form.Control
                         type="text"
                         placeholder="Create Reply"
                         controlid="reply"
                         name="reply"
+                        rows='3'
                         onChange={props.handleChange}
                         value={props.values.reply}
                       />
