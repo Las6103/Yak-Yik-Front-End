@@ -1,9 +1,9 @@
 import React from "react";
-import App from "./App";
+import Reply from "./Reply";
 import { shallow } from "enzyme";
 
 describe("First React component test with Enzyme", () => {
   it("renders without crashing", () => {
-    shallow(<App />);
+    shallow(<Reply />);
   });
 });
