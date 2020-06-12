@@ -55,7 +55,7 @@ export default function Creatememe() {
           />
           <Form.Text className="text-muted ">Send the memes!</Form.Text>
         </Form.Group>
-        <Button variant="primary" onClick={handleShow}>
+        <Button variant="success" onClick={handleShow}>
           Create
         </Button>
       </Form>
@@ -68,7 +68,7 @@ export default function Creatememe() {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleCreate}>
+          <Button variant="success" onClick={handleCreate}>
             Create
           </Button>
         </Modal.Footer>

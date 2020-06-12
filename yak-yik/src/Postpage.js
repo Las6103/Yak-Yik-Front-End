@@ -15,10 +15,10 @@ class Postpage extends Component {
 
     this.state = {
       data: {
-        post: '',
+        post: "",
         reply: [
           {
-            reply: '',
+            reply: "",
           },
         ],
       },
@@ -49,7 +49,7 @@ class Postpage extends Component {
     const repliesobj = replyobj.push(values);
     console.log(replyobj);
     return axios({
-      method: 'put',
+      method: "put",
       url: `https://yak-yik-api.herokuapp.com/posts/id/${this.state.data._id}`,
       data: {
         reply: replyobj,
@@ -88,7 +88,7 @@ class Postpage extends Component {
 
           <Formik
             initialValues={{
-              reply: '',
+              reply: "",
             }}
             enableReinitialize={true}
             onSubmit={(values) => {
@@ -100,20 +100,20 @@ class Postpage extends Component {
               <Form>
                 <Row>
                   <Col>
-                    <Form.Group controlId='formGroupReply'>
+                    <Form.Group controlId="formGroupReply">
                       <Form.Label>Reply</Form.Label>
                       <Form.Control
-                        type='text'
-                        placeholder='Create Reply'
-                        controlid='reply'
-                        name='reply'
+                        type="text"
+                        placeholder="Create Reply"
+                        controlid="reply"
+                        name="reply"
                         onChange={props.handleChange}
                         value={props.values.reply}
                       />
                     </Form.Group>
                   </Col>
                 </Row>
-                <Button variant="primary" onClick={this.handleShowCreate}>
+                <Button variant="success" onClick={this.handleShowCreate}>
                   Create
                 </Button>
                 <Modal
@@ -128,11 +128,11 @@ class Postpage extends Component {
                     Are you sure you want to post this reply?
                   </Modal.Body>
                   <Modal.Footer>
-                    <Button variant="success" onClick={props.handleSubmit}>
-                      Create
-                    </Button>
                     <Button variant="danger" onClick={this.handleCloseCreate}>
                       Close
+                    </Button>
+                    <Button variant="success" onClick={props.handleSubmit}>
+                      Create
                     </Button>
                   </Modal.Footer>
                 </Modal>

@@ -136,7 +136,7 @@ class Memepage extends Component {
             <Button variant="secondary" onClick={this.handleCloseDelete}>
               Close
             </Button>
-            <Button variant="warning" onClick={this.handleUpdate}>
+            <Button variant="success" onClick={this.handleUpdate}>
               Update
             </Button>
           </Modal.Footer>
