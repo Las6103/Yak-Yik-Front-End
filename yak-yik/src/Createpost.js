@@ -68,7 +68,7 @@ export default function Createpost() {
         </Modal.Header>
         <Modal.Body>You're about to create this dank meme!</Modal.Body>
         <Modal.Footer>
-          <Button variant="danger" onClick={handleClose}>
+          <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
           <Button variant="success" onClick={handleCreate}>
