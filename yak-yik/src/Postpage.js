@@ -114,6 +114,7 @@ class Postpage extends Component {
                         placeholder="Create Reply"
                         controlid="reply"
                         name="reply"
+                        as="textarea"
                         rows='3'
                         onChange={props.handleChange}
                         value={props.values.reply}
