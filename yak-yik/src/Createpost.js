@@ -1,16 +1,16 @@
-import React, { useState } from "react";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
-import { useFormik } from "formik";
-import "./Post.css";
-import axios from "axios";
+import React, { useState } from 'react';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
+import { useFormik } from 'formik';
+import './Post.css';
+import axios from 'axios';
 
 export default function Createpost() {
   const formik = useFormik({
     initialValues: {
-      post: "",
-      reply: "",
+      post: '',
+      reply: '',
     },
     onSubmit: () => {
       create().then(() => window.location.reload(true));
@@ -19,8 +19,8 @@ export default function Createpost() {
 
   const create = () => {
     return axios({
-      method: "post",
-      url: "https://yak-yik-api.herokuapp.com/posts",
+      method: 'post',
+      url: 'https://yak-yik-api.herokuapp.com/posts',
       data: {
         post: formik.values.post,
       },
@@ -44,21 +44,21 @@ export default function Createpost() {
   return (
     <div>
       <Form onSubmit={formik.handleSubmit}>
-        <Form.Group controlId="post">
+        <Form.Group controlId='post'>
           <Form.Label>Create Post</Form.Label>
           <Form.Control
-            type="text"
-            placeholder="Create Post"
-            as="textarea"
-            rows="3"
+            type='text'
+            placeholder='Create Post'
+            as='textarea'
+            rows='3'
             onChange={formik.handleChange}
             value={formik.values.post}
           />
-          <Form.Text className="text-muted">
+          <Form.Text className='text-muted'>
             Warning! Your post will be roasted!
           </Form.Text>
         </Form.Group>
-        <Button variant="success" onClick={handleShow}>
+        <Button variant='success' onClick={handleShow}>
           Create
         </Button>
       </Form>
@@ -66,12 +66,12 @@ export default function Createpost() {
         <Modal.Header closeButton>
           <Modal.Title>Please Confirm</Modal.Title>
         </Modal.Header>
-        <Modal.Body>You're about to create this dank meme!</Modal.Body>
+        <Modal.Body>You're about to create this post!</Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button variant='secondary' onClick={handleClose}>
             Close
           </Button>
-          <Button variant="success" onClick={handleCreate}>
+          <Button variant='success' onClick={handleCreate}>
             Create
           </Button>
         </Modal.Footer>
