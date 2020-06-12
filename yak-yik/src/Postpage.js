@@ -44,17 +44,23 @@ class Postpage extends Component {
    * Create Reply
    */
   create = (values) => {
-    const currentreplies = this.state.data.reply.map((data) => data.reply);
-    const replyobj = currentreplies.map((str) => ({ reply: str }));
-    const repliesobj = replyobj.push(values);
-    console.log(replyobj);
-    return axios({
-      method: "put",
-      url: `https://yak-yik-api.herokuapp.com/posts/id/${this.state.data._id}`,
-      data: {
-        reply: replyobj,
-      },
-    });
+    console.log(values.reply);
+    if (values.reply.length > 0) {
+      const currentreplies = this.state.data.reply.map((data) => data.reply);
+      const replyobj = currentreplies.map((str) => ({ reply: str }));
+      const repliesobj = replyobj.push(values);
+      console.log(replyobj);
+      return axios({
+        method: "put",
+        url: `https://yak-yik-api.herokuapp.com/posts/id/${this.state.data._id}`,
+        data: {
+          reply: replyobj,
+        },
+      });
+    } else {
+      alert("Whoops theres no reply please fill out the form");
+      this.handleCloseCreate();
+    }
   };
 
   handleCreate = () => {
@@ -128,7 +134,10 @@ class Postpage extends Component {
                     Are you sure you want to post this reply?
                   </Modal.Body>
                   <Modal.Footer>
-                    <Button variant="secondary" onClick={this.handleCloseCreate}>
+                    <Button
+                      variant="secondary"
+                      onClick={this.handleCloseCreate}
+                    >
                       Close
                     </Button>
                     <Button variant="success" onClick={props.handleSubmit}>
