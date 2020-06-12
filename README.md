@@ -20,6 +20,14 @@ Yak Yik is a ananymous social platform where you have the opportunity to casuall
 
 ![Image of YakYik Postpage](https://github.com/Las6103/Yak-Yik-Front-End/blob/feature/README%20IMG/YakYikMeme.png?raw=true)
 
+## Dependencies
+
+* [Bootstrap](https://getbootstrap.com/)
+* [React-Router](https://reacttraining.com/react-router/)
+* [Axios](https://github.com/axios/axios)
+* [Formik](https://jaredpalmer.com/formik/)
+* [Enzyme](https://enzymejs.github.io/enzyme/)
+
 ## Support
 
 Having issues?
