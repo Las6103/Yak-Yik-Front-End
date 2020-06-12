@@ -6,6 +6,8 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import axios from "axios";
 import "./Memepage.css";
+import { Formik } from "formik";
+import Form from "react-bootstrap/Form";
 
 class Memepage extends Component {
   constructor(props) {
@@ -46,17 +48,11 @@ class Memepage extends Component {
     });
   };
 
-  update = () => {
+  update = (values) => {
     return axios({
       method: "put",
-      url: `https://yak-yik-api.herokuapp.com/memes/id/${this.state.data.image_url}`,
-    });
-  };
-
-  handleUpdate = () => {
-    this.update().then(() => {
-      this.setState({ showDelete: false });
-      this.props.history.push("/memes");
+      url: `https://yak-yik-api.herokuapp.com/memes/id/${this.state.data._id}`,
+      data: values,
     });
   };
 
@@ -113,33 +109,60 @@ class Memepage extends Component {
           </Modal.Header>
           <Modal.Body>You're about to delete this dank meme!</Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary" onClick={this.handleCloseUpdate}>
+            <Button variant="secondary" onClick={this.handleCloseDelete}>
               Close
             </Button>
-            <Button variant="danger" onClick={this.handleUpdate}>
+            <Button variant="danger" onClick={this.handleDelete}>
               Delete
             </Button>
           </Modal.Footer>
         </Modal>
 
-        <Modal
-          show={this.state.showUpdate}
-          onHide={this.handleCloseDelete}
-          animation={false}
+        <Formik
+          initialValues={this.state.data}
+          enableReinitialize={true}
+          onSubmit={(values) => {
+            this.update(values).then(() => this.getPost());
+            this.handleCloseUpdate();
+          }}
         >
-          <Modal.Header closeButton>
-            <Modal.Title>Please Confirm</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>You're about to update this dank meme!</Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={this.handleCloseDelete}>
-              Close
-            </Button>
-            <Button variant="success" onClick={this.handleUpdate}>
-              Update
-            </Button>
-          </Modal.Footer>
-        </Modal>
+          {(props) => (
+            <Modal
+              show={this.state.showUpdate}
+              onHide={this.handleCloseUpdate}
+              animation={false}
+            >
+              <Modal.Header closeButton>
+                <Modal.Title>Please Confirm</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+                <Form>
+                  <Form.Group controlId="formGroupImage">
+                    <Form.Label>Image</Form.Label>
+                    <Form.Control
+                      type="text"
+                      placeholder="Insert Image URL"
+                      controlid="image_url"
+                      name="image_url"
+                      as="textarea"
+                      rows="3"
+                      onChange={props.handleChange}
+                      value={props.values.image_url}
+                    />
+                  </Form.Group>
+                </Form>
+              </Modal.Body>
+              <Modal.Footer>
+                <Button variant="secondary" onClick={this.handleCloseUpdate}>
+                  Close
+                </Button>
+                <Button variant="success" onClick={props.handleSubmit}>
+                  Update
+                </Button>
+              </Modal.Footer>
+            </Modal>
+          )}
+        </Formik>
       </Container>
     );
   }
