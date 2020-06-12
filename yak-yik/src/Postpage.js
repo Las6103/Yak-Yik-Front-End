@@ -86,7 +86,7 @@ class Postpage extends Component {
     return (
       <>
         <Container>
-          <h2>Post</h2>
+          <h2>Original Post</h2>
           <Card>
             <Card.Body>
               <Card.Title>{content.post}</Card.Title>
