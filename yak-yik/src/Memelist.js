@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import Meme from './Meme.js';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Creatememe from './Creatememe.js';
+import React, { Component } from "react";
+import Meme from "./Meme.js";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Creatememe from "./Creatememe.js";
 
 class Memelist extends Component {
   constructor() {
@@ -17,7 +17,7 @@ class Memelist extends Component {
   };
 
   getMemes = () => {
-    fetch('https://yak-yik-api.herokuapp.com/memes')
+    fetch("https://yak-yik-api.herokuapp.com/memes")
       .then((unparsedData) => unparsedData.json())
       .then((parsedData) => {
         this.setState({ data: parsedData });

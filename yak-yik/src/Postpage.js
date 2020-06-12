@@ -6,7 +6,7 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
-import "./Postpage.css"
+import "./Postpage.css";
 import axios from "axios";
 import { Formik } from "formik";
 import Modal from "react-bootstrap/Modal";
@@ -115,7 +115,7 @@ class Postpage extends Component {
                         controlid="reply"
                         name="reply"
                         as="textarea"
-                        rows='3'
+                        rows="3"
                         onChange={props.handleChange}
                         value={props.values.reply}
                       />

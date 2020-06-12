@@ -12,7 +12,7 @@ export default function Creatememe() {
     },
 
     onSubmit: () => {
-      create().then(() => window.location.reload(true))
+      create().then(() => window.location.reload(true));
     },
   });
 
@@ -22,9 +22,9 @@ export default function Creatememe() {
       url: "https://yak-yik-api.herokuapp.com/memes",
       data: {
         image_url: formik.values.image_url,
-      }
-    })
-  }
+      },
+    });
+  };
 
   /**
    * Modal Controls

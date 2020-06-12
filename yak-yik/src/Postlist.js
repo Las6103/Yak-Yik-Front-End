@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import Post from './Post.js';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Createpost from './Createpost.js';
+import React, { Component } from "react";
+import Post from "./Post.js";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Createpost from "./Createpost.js";
 class Postlist extends Component {
   constructor(props) {
     super(props);
@@ -12,7 +12,7 @@ class Postlist extends Component {
     };
   }
   componentDidMount() {
-    fetch('https://yak-yik-api.herokuapp.com/posts')
+    fetch("https://yak-yik-api.herokuapp.com/posts")
       .then((unparsedData) => unparsedData.json())
       .then((parsedData) => {
         this.setState({ data: parsedData });
