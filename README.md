@@ -38,4 +38,4 @@ navigate [Here](https://github.com/Las6103/Yak-Yik-Group-Project/issues) and sel
 
 This app was made with love and cruel intentions by
 
-Lenny, Brian, Will and Miles
+Brian Avjean, Miles Hamilton, William Noble, Leonardo Silva
