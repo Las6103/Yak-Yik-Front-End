@@ -7,7 +7,7 @@ function Post(props) {
   return (
     <Col xs={12} md={6}>
       <Link to={`/posts/${props.data._id}`}>
-        <Card className='card'>
+        <Card className='postcard'>
           <Card.Body>
             <Card.Title>{props.data.post}</Card.Title>
             <Card.Text>
